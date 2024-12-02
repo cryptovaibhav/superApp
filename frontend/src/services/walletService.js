@@ -7,19 +7,6 @@ const TRANSFER_TO_TRANSACTION_DATA = [12,100,0,0,0,0,0,0,0,2];
 const BURN_TRANSACTION_DATA = [15,100,0,0,0,0,0,0,0,2];
 const NETWORK_NAME = "SOLANA_DEVNET";
 
-// function get_ad(id, callback) {
-//     window.contract.get_ad({id})
-//         .then(ad => {
-//             var mappedAd = ad ? getMappedAd(ad) : null;
-//             callback(mappedAd); 
-//         })
-//         .catch(ex => {
-//             console.log("getting ad details failed");
-//             callback(null);
-//             throw ex;
-//         });
-// }
-
 function getSolanaWalletAddress(userWallets) {
     var sol_wallet_arr = userWallets.wallets.filter(a=>a.network_name == "SOLANA_DEVNET");
     if(sol_wallet_arr.length > 0){
