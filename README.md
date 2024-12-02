@@ -30,6 +30,8 @@ At the current moment, the DAPP can be run locally as follows -
 5. We couldn't host of version of it in time due to the challenges with Okta & Solana integraton at the RPC level
 6. Also, couldn't make the Exa Protocol link to serve the static pages due to some challenges which couldn't be resolved in time.
 
+We have been able to successfully run the full flow through Solana CLI but due to the integration issues, it couldn't be completed in time from UI side. 
+
 I would love to build further on this project in the coming weeks. 
 
 Here are some screenshots from the project - 
