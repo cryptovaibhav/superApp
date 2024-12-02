@@ -96,18 +96,6 @@ function getBurnRawTxnObject(mintToAccountAddress, tx_signer){
     return rawTxnObj;
 }
 
-function mintGold(mintToAccountAddress, user) {
-    
-}
-
-function transferGold(){
-    
-}
-
-function burnGold(){
-    
-}
-
 export default {
     getSolanaWalletAddress: getSolanaWalletAddress,
     getMintToRawTxnObject: getMintToRawTxnObject,
