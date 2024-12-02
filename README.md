@@ -1,4 +1,4 @@
-ToGold
+**ToGold**
 
 The goal of this project is to explore the idea of building a decentralized tokenised gold marketplace. 
 The project makes uses of - 
