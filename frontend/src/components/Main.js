@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useOkto } from "okto-sdk-react";
 import { useNavigate } from "react-router-dom";
 import walletService from "../services/walletService";
@@ -15,56 +15,8 @@ const Main = ({ authToken, handleLogout }) => {
     });
 
     const { executeRawTransaction, getRawTransactionStatus } = useOkto();
-
-    // const [userDetails, setUserDetails] = useState(null);
-
-    // const [portfolioData, setPortfolioData] = useState(null);
-    // const [wallets, setWallets] = useState(null);
-    
     const [error, setError] = useState(null);
-    // const [activeSection, setActiveSection] = useState(null);
     const { getUserDetails, getPortfolio, createWallet, logOut } = useOkto();
-
-    // useEffect(async () => {
-    //     console.log("use effect is called");
-    //     const walletsData = await createWallet();
-    //     console.log(walletsData);
-
-    //     // const details = await getUserDetails();
-    //     // setUserDetails(details);
-
-    //     var solAdd = walletService.getSolanaWalletAddress(walletsData);
-    //     setSolAddress(solAdd);
-    // }, []);
-  
-//   const fetchUserDetails = async () => {
-//     try {
-//       const details = await getUserDetails();
-//       setUserDetails(details);
-//       setActiveSection('userDetails');
-//     } catch (error) {
-//       setError(`Failed to fetch user details: ${error.message}`);
-//     }
-//   };
-//   const fetchPortfolio = async () => {
-//     try {
-//       const portfolio = await getPortfolio();
-//       setPortfolioData(portfolio);
-//       setActiveSection('portfolio');
-//     } catch (error) {
-//       setError(`Failed to fetch portfolio: ${error.message}`);
-//     }
-//   };
-//   const fetchWallets = async () => {
-//     try {
-//         const walletsData = await createWallet();
-//         console.log(walletsData)
-//         setWallets(walletsData);
-//         setActiveSection('wallets');
-//     } catch (error) {
-//         setError(`Failed to fetch wallets: ${error.message}`);
-//     }
-//   };
   
     const logout = async () => {
         try {
@@ -112,26 +64,27 @@ const Main = ({ authToken, handleLogout }) => {
     }
 
     const transferGold = async() => {
-        if(!solAddress){
-            var sol = await getSolAdd();
-        }
-        // transfer gold
-        console.log("TRansfer");
+        navigate('/transfer');
+        // if(!solAddress){
+        //     var sol = await getSolAdd();
+        // }
+        // // transfer gold
+        // console.log("TRansfer");
 
-        var amount = stateData.amount;
-        var recipient = stateData.recipientAdd;
-        if(amount && amount > 0 && recipient && recipient != ""){
-            try {
-                console.log("transfer gold: " + stateData.amount + ", " + stateData.recipientAdd);
-                var rawData = walletService.getTransferToRawTxnObject(sol, recipient, sol);
-                const response = await executeRawTransaction(rawData);
-                console.log("execting: ");
-                setStateData({ ...stateData, resp: response });
-                // setActiveSection('transferResponse');
-            } catch (error) {
-                setError(`Failed to transfer tokens: ${error.message}`);
-            }
-        }
+        // var amount = stateData.amount;
+        // var recipient = stateData.recipientAdd;
+        // if(amount && amount > 0 && recipient && recipient != ""){
+        //     try {
+        //         console.log("transfer gold: " + stateData.amount + ", " + stateData.recipientAdd);
+        //         var rawData = walletService.getTransferToRawTxnObject(sol, recipient, sol);
+        //         const response = await executeRawTransaction(rawData);
+        //         console.log("execting: ");
+        //         setStateData({ ...stateData, resp: response });
+        //         // setActiveSection('transferResponse');
+        //     } catch (error) {
+        //         setError(`Failed to transfer tokens: ${error.message}`);
+        //     }
+        // }
     }
 
     const burnGold = async() => {
@@ -186,7 +139,6 @@ const Main = ({ authToken, handleLogout }) => {
 
   return (
     <div style={containerStyle}>
-        <h1>Hi! Your solana address is: {solAddress}</h1>
         <h1>Your current gold balance is: { goldBalance }</h1>
 
         <input
